@@ -1,0 +1,339 @@
+/*
+ * QNQ Layout System
+ * Site structure, header, footer, and page layouts
+ */
+
+/* ========================================
+   SITE STRUCTURE
+   ======================================== */
+
+#site-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+#main-content {
+  flex: 1;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.site-header {
+  /* Layout contract: explicit height, fixed positioning */
+  height: var(--header-height);
+
+  /* Fixed positioning removes header from flow, allowing hero to start at viewport top */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  /* Visual styles */
+  background: linear-gradient(180deg, rgba(10, 10, 11, 0.96) 0%, rgba(10, 10, 11, 0.86) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+
+  z-index: var(--z-sticky);
+}
+
+/* Container inside header needs full width */
+.site-header .container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Site branding */
+.site-branding {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.header-logo-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Logo image constraint - prevent oversized logos */
+.site-branding img,
+.custom-logo-link img {
+  max-height: 48px;
+  width: auto;
+  height: auto;
+}
+
+.site-logo {
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  color: var(--amethyst);
+  text-decoration: none;
+  letter-spacing: var(--tracking-wide);
+}
+
+.site-logo:hover {
+  color: var(--amethyst-bright);
+}
+
+/* Main navigation - desktop */
+.main-navigation {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.main-navigation .nav {
+  display: flex;
+  gap: var(--space-md);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-navigation .nav li {
+  list-style: none;
+}
+
+.main-navigation a {
+  display: block;
+  font-size: var(--text-small);
+  letter-spacing: var(--tracking-wide);
+  color: var(--fog);
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+  transition: color var(--transition-normal);
+  padding: var(--space-xs) 0;
+}
+
+.main-navigation a:hover,
+.main-navigation a:focus {
+  color: var(--white);
+}
+
+/* Mobile menu toggle */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--white);
+  padding: var(--space-xs) var(--space-sm);
+  cursor: pointer;
+}
+
+.menu-toggle:hover {
+  border-color: var(--amethyst);
+  color: var(--amethyst);
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    /* Mobile header uses smaller height */
+    height: var(--header-height-mobile);
+  }
+
+  /* Mobile logo constraint */
+  .site-branding img,
+  .custom-logo-link img {
+    max-height: 40px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .main-navigation {
+    display: none;
+    position: fixed;
+    top: var(--header-height-mobile);
+    left: 0;
+    right: 0;
+    background: var(--basalt);
+    border-top: 1px solid var(--border);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-md);
+    z-index: var(--z-dropdown);
+  }
+
+  .main-navigation.active {
+    display: flex;
+  }
+
+  .main-navigation .nav {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+/* Cart icon in header */
+.header-cart {
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--amethyst);
+  color: var(--white);
+  font-size: var(--text-tiny);
+  font-weight: var(--weight-bold);
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.site-footer {
+  background: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: var(--space-xl) 0 var(--space-md);
+  margin-top: var(--space-2xl);
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.footer-section h4 {
+  font-size: var(--text-small);
+  color: var(--fog);
+  margin-bottom: var(--space-sm);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section li {
+  margin-bottom: var(--space-xs);
+}
+
+.footer-section a {
+  color: var(--ash);
+  text-decoration: none;
+  transition: color var(--transition-normal);
+}
+
+.footer-section a:hover {
+  color: var(--white);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: var(--space-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.footer-tagline {
+  color: var(--fog);
+  font-size: var(--text-small);
+}
+
+.footer-tagline strong {
+  color: var(--amethyst);
+  font-weight: var(--weight-semibold);
+}
+
+.footer-social {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.footer-social a {
+  color: var(--fog);
+  transition: color var(--transition-normal);
+}
+
+.footer-social a:hover {
+  color: var(--amethyst);
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ========================================
+   PAGE LAYOUTS
+   ======================================== */
+
+/* Default page */
+.page-header {
+  padding: var(--space-xl) 0;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.page-title {
+  font-size: var(--text-h2);
+  color: var(--white);
+  margin-bottom: var(--space-sm);
+}
+
+.page-subtitle {
+  font-size: var(--text-body);
+  color: var(--ash);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-content {
+  padding: var(--space-xl) 0;
+}
+
+/* 404 page */
+.error-404-content {
+  text-align: center;
+  padding: var(--space-2xl) 0;
+}
+
+.error-404-content h1 {
+  font-size: 120px;
+  color: var(--amethyst);
+  margin-bottom: var(--space-md);
+}
+
+.error-404-content p {
+  font-size: var(--text-h4);
+  color: var(--ash);
+  margin-bottom: var(--space-lg);
+}

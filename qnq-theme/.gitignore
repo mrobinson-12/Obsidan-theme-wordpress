@@ -1,0 +1,23 @@
+# WordPress
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temp files
+*.tmp
+*.swp
+*~
+
+# OS files
+.DS_Store
+.Spotlight-V100
+.Trashes

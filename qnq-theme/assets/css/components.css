@@ -1,0 +1,495 @@
+/*
+ * QNQ Component Library
+ * Buttons, cards, forms, and reusable interface elements
+ */
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+.btn {
+  display: inline-block;
+  padding: 14px 36px;
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition-normal);
+  font-family: var(--font-sans);
+  border-radius: var(--radius-sm);
+}
+
+/* Primary button - Purple (Amethyst) */
+.btn-primary {
+  background: linear-gradient(180deg, var(--amethyst) 0%, #6b49ff 100%);
+  color: var(--white);
+  border: 1px solid var(--amethyst);
+  box-shadow: 0 8px 24px rgba(127, 91, 255, 0.35);
+}
+
+.btn-primary:hover {
+  background: var(--amethyst-dark);
+  border-color: var(--amethyst-dark);
+  color: var(--white);
+  box-shadow: var(--shadow-button-hover);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+}
+
+/* Secondary button - Outlined */
+.btn-secondary {
+  background: linear-gradient(180deg, rgba(25, 25, 34, 0.9) 0%, rgba(18, 18, 26, 0.9) 100%);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btn-secondary:hover {
+  border-color: rgba(127, 91, 255, 0.6);
+  color: var(--white);
+  box-shadow: 0 10px 26px rgba(127, 91, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Full width button */
+.btn-full {
+  width: 100%;
+  display: block;
+}
+
+/* Button group */
+.btn-group {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* Disabled state */
+.btn:disabled,
+.btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Focus states for accessibility */
+.btn:focus-visible {
+  outline: 2px solid var(--amethyst);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   CARDS
+   ======================================== */
+
+.card {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 40%, rgba(0, 0, 0, 0) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: var(--space-lg);
+  transition: all var(--transition-normal);
+  border-radius: var(--radius-md);
+}
+
+.card:hover {
+  border-color: rgba(127, 91, 255, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  transform: translateY(-2px);
+}
+
+.card-title {
+  font-size: var(--text-h4);
+  color: var(--white);
+  margin-bottom: var(--space-md);
+  font-weight: var(--weight-semibold);
+}
+
+.card-description {
+  font-size: var(--text-body);
+  color: var(--ash);
+  line-height: var(--leading-relaxed);
+}
+
+/* Card link - entire card is clickable */
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-link:hover .card {
+  border-color: var(--amethyst);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Card with icon */
+.card-icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: var(--space-sm);
+  color: var(--amethyst);
+}
+
+/* ========================================
+   FORMS
+   ======================================== */
+
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-label {
+  display: block;
+  font-size: var(--text-body);
+  color: var(--white);
+  margin-bottom: var(--space-xs);
+  font-weight: var(--weight-medium);
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: var(--text-body);
+  font-family: var(--font-sans);
+  background: var(--obsidian);
+  color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-normal);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--fog);
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--amethyst);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Form hints */
+.form-hint {
+  font-size: var(--text-small);
+  color: var(--fog);
+  margin-top: var(--space-xs);
+}
+
+/* Form errors */
+.form-error {
+  font-size: var(--text-small);
+  color: var(--error);
+  margin-top: var(--space-xs);
+}
+
+.form-input.error,
+.form-textarea.error,
+.form-select.error {
+  border-color: var(--error);
+}
+
+/* Required indicator */
+.required {
+  color: var(--amethyst);
+}
+
+/* File upload styling */
+.form-file {
+  padding: var(--space-sm);
+  border: 2px dashed var(--border);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color var(--transition-normal);
+}
+
+.form-file:hover {
+  border-color: var(--amethyst);
+}
+
+.form-file input[type="file"] {
+  display: none;
+}
+
+/* ========================================
+   BADGES
+   ======================================== */
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: var(--text-small);
+  font-weight: var(--weight-medium);
+  border-radius: var(--radius-sm);
+  background: var(--coal);
+  color: var(--ash);
+  border: 1px solid var(--border);
+}
+
+.badge-material {
+  background: var(--basalt);
+  color: var(--amethyst);
+  border-color: var(--amethyst);
+}
+
+/* ========================================
+   GRID SYSTEM
+   ======================================== */
+
+.grid {
+  display: grid;
+  gap: var(--space-grid-gap);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Responsive grid */
+@media (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================
+   SECTION
+   ======================================== */
+
+.section {
+  padding: var(--space-section-padding) 0;
+}
+
+.section-header {
+  margin-bottom: var(--space-lg);
+}
+
+.section-title {
+  font-size: var(--text-h2);
+  color: var(--white);
+  margin-bottom: var(--space-sm);
+}
+
+.section-subtitle {
+  font-size: var(--text-body);
+  color: var(--ash);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-section-padding-mobile) 0;
+  }
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+
+.nav {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.nav-link {
+  font-size: var(--text-body);
+  color: var(--ash);
+  text-decoration: none;
+  transition: color var(--transition-normal);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--white);
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid var(--amethyst);
+  outline-offset: 2px;
+}
+
+/* Mobile navigation */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ========================================
+   PRODUCT CARD (WooCommerce specific)
+   ======================================== */
+
+.product-card {
+  background: var(--basalt);
+  border: 1px solid var(--border);
+  padding: var(--space-md);
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-card:hover {
+  border-color: var(--amethyst);
+  box-shadow: var(--shadow-glow);
+}
+
+.product-card-image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  margin-bottom: var(--space-sm);
+  background: var(--obsidian);
+}
+
+.product-card-title {
+  font-size: var(--text-h4);
+  color: var(--white);
+  margin-bottom: var(--space-xs);
+}
+
+.product-card-price {
+  font-size: var(--text-body);
+  color: var(--ash);
+  margin-top: auto;
+}
+
+/* ========================================
+   TRUST SIGNALS
+   ======================================== */
+
+.trust-signal {
+  text-align: center;
+  padding: var(--space-md);
+}
+
+.trust-signal-icon {
+  width: 32px;
+  height: 32px;
+  margin: 0 auto var(--space-sm);
+  color: var(--amethyst);
+}
+
+.trust-signal-text {
+  font-size: var(--text-body);
+  color: var(--ash);
+  line-height: var(--leading-normal);
+}
+
+.trust-signal-quote {
+  font-size: var(--text-h4);
+  color: var(--white);
+  font-style: italic;
+  margin-bottom: var(--space-xs);
+}
+
+.trust-signal-attribution {
+  font-size: var(--text-small);
+  color: var(--fog);
+}
+
+/* ========================================
+   QNQ LAB TEASER
+   ======================================== */
+
+.qnq-lab-teaser {
+  text-align: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  margin: var(--space-2xl) auto;
+  max-width: var(--container-narrow);
+}
+
+.qnq-lab-teaser-text {
+  color: var(--ash);
+  font-size: var(--text-h4);
+  display: inline;
+}
+
+.qnq-lab-teaser-link {
+  color: var(--amethyst);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  font-size: var(--text-h4);
+  display: inline;
+}
+
+.qnq-lab-teaser-link:hover {
+  color: var(--amethyst-bright);
+  text-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+/* ========================================
+   LOADING STATES
+   ======================================== */
+
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.spinner {
+  border: 2px solid var(--border);
+  border-top-color: var(--amethyst);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ========================================
+   RESPONSIVE UTILITIES
+   ======================================== */
+
+/* Hide on mobile */
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none;
+  }
+}
+
+/* Hide on desktop */
+@media (min-width: 769px) {
+  .hide-desktop {
+    display: none;
+  }
+}

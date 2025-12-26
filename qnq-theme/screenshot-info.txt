@@ -1,0 +1,23 @@
+SCREENSHOT REQUIREMENTS FOR WORDPRESS THEME
+===========================================
+
+To add a theme screenshot that appears in the WordPress admin:
+
+1. Create a screenshot of your homepage
+2. Dimensions: 1200 x 900 pixels (4:3 ratio)
+3. Format: PNG or JPG
+4. Filename: screenshot.png
+5. Place in theme root directory
+
+The screenshot will appear in:
+- Appearance → Themes page
+- Theme details modal
+
+Recommended screenshot content:
+- Show the homepage hero section
+- Include navigation
+- Display purple accent color
+- Show dark theme aesthetic
+- Capture a product card or two
+
+This helps administrators identify the theme visually.

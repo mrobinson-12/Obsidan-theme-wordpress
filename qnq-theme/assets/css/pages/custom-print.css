@@ -1,0 +1,312 @@
+/*
+ * Custom Print Page Styles
+ * QNQ 3D Printing
+ */
+
+.custom-print-page {
+  padding: var(--space-xl) 0;
+}
+
+.custom-print-page .page-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ========================================
+   PROCESS OVERVIEW
+   ======================================== */
+
+.process-overview {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 60%, rgba(0, 0, 0, 0) 100%);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.process-step {
+  text-align: center;
+}
+
+.step-number {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--amethyst);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-h3);
+  font-weight: var(--weight-bold);
+  margin: 0 auto var(--space-sm);
+}
+
+.process-step h3 {
+  font-size: var(--text-h4);
+  color: var(--white);
+  margin-bottom: var(--space-xs);
+}
+
+.process-step p {
+  color: var(--ash);
+  font-size: var(--text-small);
+}
+
+@media (max-width: 768px) {
+  .process-overview .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+}
+
+/* ========================================
+   MATERIAL GUIDANCE
+   ======================================== */
+
+.material-guidance {
+  margin: var(--space-xl) 0;
+}
+
+.material-note {
+  text-align: center;
+  color: var(--fog);
+  font-style: italic;
+  margin-top: var(--space-md);
+}
+
+/* ========================================
+   REQUEST FORM
+   ======================================== */
+
+.request-form-section {
+  margin: var(--space-xl) 0;
+}
+
+.form-wrapper {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 55%, rgba(0, 0, 0, 0) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+}
+
+.form-aside {
+  background: var(--basalt);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.form-aside h3 {
+  color: var(--white);
+  margin-bottom: var(--space-sm);
+}
+
+.form-aside ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: var(--ash);
+}
+
+.form-aside li {
+  margin-bottom: var(--space-xs);
+  padding-left: var(--space-md);
+  position: relative;
+}
+
+.form-aside li::before {
+  content: "-";
+  position: absolute;
+  left: 0;
+  color: var(--amethyst);
+}
+
+.form-aside-card {
+  background: var(--coal);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+}
+
+.form-aside-card h4 {
+  color: var(--white);
+  margin-bottom: var(--space-xs);
+}
+
+.form-aside-card p {
+  color: var(--fog);
+}
+
+/* Contact Form 7 Styling */
+.wpcf7-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.wpcf7-form p {
+  margin: 0;
+}
+
+.wpcf7-form label {
+  display: block;
+  color: var(--white);
+  font-weight: var(--weight-medium);
+  margin-bottom: var(--space-xs);
+}
+
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"],
+.wpcf7-form input[type="tel"],
+.wpcf7-form input[type="number"],
+.wpcf7-form select,
+.wpcf7-form textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(9, 9, 13, 0.9);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+}
+
+.wpcf7-form input::placeholder,
+.wpcf7-form textarea::placeholder {
+  color: var(--fog);
+}
+
+.wpcf7-form input:focus,
+.wpcf7-form select:focus,
+.wpcf7-form textarea:focus {
+  outline: none;
+  border-color: var(--amethyst);
+}
+
+.wpcf7-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.wpcf7-form input[type="file"] {
+  color: var(--ash);
+}
+
+.wpcf7-form input[type="submit"] {
+  background: linear-gradient(180deg, var(--amethyst) 0%, #6b49ff 100%);
+  color: var(--white);
+  padding: 12px 32px;
+  border: none;
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  transition: background var(--transition-normal);
+  border-radius: var(--radius-sm);
+}
+
+.wpcf7-form input[type="submit"]:hover {
+  background: var(--amethyst-dark);
+}
+
+/* Form validation */
+.wpcf7-not-valid {
+  border-color: var(--error) !important;
+}
+
+.wpcf7-validation-errors,
+.wpcf7-acceptance-missing {
+  background: transparent;
+  border-left: 3px solid var(--error);
+  color: var(--error);
+  padding: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.wpcf7-mail-sent-ok {
+  background: transparent;
+  border-left: 3px solid var(--success);
+  color: var(--success);
+  padding: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+/* Form placeholder (when no CF7 shortcode set) */
+.form-placeholder {
+  padding: var(--space-lg);
+  text-align: center;
+  color: var(--ash);
+}
+
+.form-placeholder ul {
+  text-align: left;
+  max-width: 400px;
+  margin: var(--space-md) auto;
+  color: var(--fog);
+}
+
+/* ========================================
+   CONFIDENCE SECTIONS
+   ======================================== */
+
+.confidence-sections {
+  margin: var(--space-xl) 0;
+}
+
+.confidence-block {
+  background: var(--basalt);
+  border: 1px solid var(--border);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+.confidence-block:last-child {
+  margin-bottom: 0;
+}
+
+.confidence-block h3 {
+  color: var(--white);
+  font-size: var(--text-h3);
+  margin-bottom: var(--space-md);
+}
+
+.confidence-content {
+  color: var(--ash);
+  line-height: var(--leading-normal);
+}
+
+.confidence-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.confidence-content li {
+  margin-bottom: var(--space-sm);
+  padding-left: var(--space-md);
+  position: relative;
+}
+
+.confidence-content li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--amethyst);
+  font-weight: var(--weight-bold);
+}
+
+.confidence-content strong {
+  color: var(--white);
+}
+
+.confidence-content a {
+  color: var(--amethyst);
+  text-decoration: none;
+}
+
+.confidence-content a:hover {
+  text-decoration: underline;
+}
