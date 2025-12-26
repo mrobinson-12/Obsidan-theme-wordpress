@@ -198,6 +198,47 @@
           $(this).addClass('loading');
         });
 
+        // Handle single product AJAX add to cart
+        $(document).on('click', '.single_add_to_cart_button.ajax_add_to_cart', function(e) {
+          e.preventDefault();
+
+          var $button = $(this);
+          var productId = $button.data('product_id');
+          var quantity = $button.closest('form.cart').find('input.qty').val() || 1;
+
+          if (!productId) {
+            return true; // Let normal form submission happen
+          }
+
+          $button.removeClass('added').addClass('loading');
+
+          // Trigger WooCommerce AJAX add to cart
+          $.ajax({
+            type: 'POST',
+            url: wc_add_to_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', 'add_to_cart'),
+            data: {
+              product_id: productId,
+              quantity: quantity
+            },
+            success: function(response) {
+              if (response.error && response.product_url) {
+                window.location = response.product_url;
+                return;
+              }
+
+              // Trigger WooCommerce event
+              $(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, $button]);
+
+              $button.removeClass('loading').addClass('added');
+            },
+            error: function() {
+              $button.removeClass('loading');
+            }
+          });
+
+          return false;
+        });
+
         // Remove loading state and show success feedback
         $(document.body).on('added_to_cart', function(event, fragments, cart_hash, $button) {
           $('.ajax_add_to_cart, .single_add_to_cart_button').removeClass('loading');

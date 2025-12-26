@@ -286,3 +286,32 @@ function qnq_loop_add_to_cart_args($args, $product) {
     return $args;
 }
 add_filter('woocommerce_loop_add_to_cart_args', 'qnq_loop_add_to_cart_args', 10, 2);
+
+/**
+ * Enable AJAX Add to Cart on Single Product Pages
+ */
+add_filter('woocommerce_product_single_add_to_cart_text', function($text) {
+    return $text;
+});
+
+// Add product ID to single add to cart button for AJAX support
+function qnq_add_product_id_to_add_to_cart_button() {
+    global $product;
+    if ($product && $product->is_type('simple')) {
+        ?>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                var $addToCartButton = $('.single_add_to_cart_button');
+                if ($addToCartButton.length && !$addToCartButton.hasClass('disabled')) {
+                    $addToCartButton.addClass('ajax_add_to_cart');
+                    if (!$addToCartButton.attr('data-product_id')) {
+                        $addToCartButton.attr('data-product_id', <?php echo esc_js($product->get_id()); ?>);
+                        $addToCartButton.attr('data-product_sku', '<?php echo esc_js($product->get_sku()); ?>');
+                    }
+                }
+            });
+        </script>
+        <?php
+    }
+}
+add_action('woocommerce_after_add_to_cart_button', 'qnq_add_product_id_to_add_to_cart_button');
